@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIDOG - Terapia Asistida</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenedor del Navbar Global -->
+    <div id="navbar-container"></div>
+
+    <!-- Imagen de fondo específica para esta página -->
+    <section class="parallax asistencia-parallax"></section>
+
+    <section class="hero">
+        <h1>Terapia Asistida con Perros</h1>
+        <p>El vínculo humano-canino puede ser transformador. Descubre cómo la terapia asistida con perros puede mejorar la vida de muchas personas.</p>
+    </section>
+
+    <main class="asistencia-container">
+        <section class="asistencia-info">
+            <h2>¿Qué es la Terapia Asistida con Perros?</h2>
+            <p>La Terapia Asistida con Perros (TAP) es una intervención en la que un perro especialmente entrenado forma parte del proceso terapéutico, proporcionando apoyo emocional y físico a personas con diversas necesidades.</p>
+        </section>
+
+        <section class="beneficios">
+            <h2>Beneficios de la Terapia Asistida</h2>
+            <ul>
+                <li>Mejora la autoestima y la confianza</li>
+                <li>Reduce el estrés y la ansiedad</li>
+                <li>Estimula la interacción social</li>
+                <li>Favorece la rehabilitación física y cognitiva</li>
+            </ul>
+        </section>
+        
+        <selection class="hero">
+        <a href="contacto.html" class="btn">Contáctanos</a>
+        </selection>
+        
+    </main>
+
+    <!-- Pie de página -->
+    <div id="footer-container"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Cargar Navbar
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar-container").innerHTML = data;
+            });
+
+        // Cargar Footer
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer-container").innerHTML = data;
+            });
+    </script>
+</body>
+</html>

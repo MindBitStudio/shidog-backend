@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIDOG - Servicios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenedor del Navbar Global -->
+    <div id="navbar-container"></div>
+
+        <!-- Imagen de fondo específica para esta página -->
+        <section class="parallax servicios-parallax"></section>
+
+    <section class="hero">
+        <h1>SERVICIOS</h1>
+        <h2>Adiestramiento personalizado</h2>
+    </section>
+
+    <main class="servicios-container">
+        <div class="servicio" onclick="abrirModal('modal-educacion')">
+            <img src="images/servicio1.jpg"  alt="Educación Canina">
+            <div class="overlay">
+                <h3>EDUCACIÓN CANINA</h3>
+                <p>Con un poco se puede llegar muy lejos</p>
+            </div>
+        </div>
+
+        <div class="servicio" onclick="abrirModal('modal-terapia')">
+            <img src="images/servicio2.jpg" alt="Terapia Asistida">
+            <div class="overlay">
+                <h3>TERAPIA ASISTIDA</h3>
+                <p>El vínculo humano-canino puede ser transformador</p>
+            </div>
+        </div>
+
+        <div class="servicio" onclick="abrirModal('modal-conducta')">
+            <img src="images/servicio3.jpg" alt="Modificación de Conducta">
+            <div class="overlay">
+                <h3>MODIFICACIÓN DE CONDUCTA</h3>
+                <p>Un enfoque positivo para corregir comportamientos</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODALES DE SERVICIOS -->
+    <div id="modal-educacion" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('modal-educacion')">&times;</span>
+            <h2>Educación Canina</h2>
+            <p>Sesiones individuales</p>
+                <p>1h 30' de duración</p>
+                <p>40€</p>
+        </div>
+    </div>
+
+    <div id="modal-terapia" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('modal-terapia')">&times;</span>
+            <h2>Modificación de conducta</h2>
+            <p>Sesiones individuales</p>
+                <p>2h de duración</p>
+                <p>45€</p>
+        </div>
+    </div>
+
+    <div id="modal-conducta" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('modal-conducta')">&times;</span>
+            <h2>Curso Cachorros</h2>
+            <p>Bono 5 sesiones</p>
+                <p>1h 30' de duración/sesion</p>    
+                <p>175€</p>
+        </div>
+    </div>
+
+        <!-- Pie de página -->
+        <div id="footer-container"></div>
+
+    <script src="script.js"></script>
+    <script>
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar-container").innerHTML = data;
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIDOG - Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenedor del Navbar Global -->
+    <div id="navbar-container"></div>
+
+    <!-- Imagen de fondo específica para esta página -->
+    <section class="parallax" style="background-image: url('images/portada.jpg');"></section>
+
+    
+    <section class="hero">
+        <h1>SHIDOG EDUCANINA</h1>
+        <h2>Adiestramiento y educación canina</h2>
+        <p>SHIDOG Educación Canina nació de la creencia de que los perros merecían ser entendidos y respetados. En los últimos años nuestros pequeños amigos de cuatro patas han empezado a formar parte de nuestras vidas de una manera que nunca antes se había visto, por ello, nuestro objetivo es brindarles la mejor calidad de vida.</p>
+
+            <p>En este mundo de humanos nuestros amigos necesitaran adaptarse y a prender a relacionarse con el mundo que les rodea para poder llegar a ser individuos sanos y estables emocionalmente, con ello obtendremos lo que todos deseamos para nuestros amigos, su felicidad.</p>
+            
+            <p> Ya sea por modales básicos o problemas de comportamiento más complejos, no solo nos centramos en entrenar a tu perrete , sino también en enseñarte a ti a comunicarte de manera amable y eficaz con él. Este método de entrenamiento cuenta con técnicas que harán que tanto tú como tu compañero tengais una feliz vida juntos.</p>
+
+            <p>¿A que estas esperando?</p>
+
+        <a href="contacto.html" class="btn">Contáctanos</a>
+    </section>
+
+        <!-- Pie de página -->
+        <div id="footer-container"></div>
+
+    <script src="script.js"></script>
+    <!-- Cargar Navbar de manera dinámica -->
+    <script>
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar-container").innerHTML = data;
+            });
+    </script>
+</body>
+</html>

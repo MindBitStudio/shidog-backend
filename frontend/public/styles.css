@@ -1,0 +1,678 @@
+:root {
+    --morado-pastel: #B39DDB; /* Morado suave */
+    --azul-pastel: #90CAF9;   /* Azul pastel */
+    --naranja-suave: #F4A261; /* Para botones y detalles */
+    --verde-suave: #7BBF6A;   /* Color de fondo o elementos secundarios */
+    --blanco: #FFFFFF;
+    --gris-claro: #F5F5F5;
+}
+
+/* ............................................................................Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--morado-pastel);
+    color: #333;
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 20px 20px; /* Evita que se superponga con el header */
+    text-align: center;
+}
+
+/* .............................................................................SECCIÓN PRINCIPAL */
+
+
+
+/* Estilo de las partículas de la estela */
+.trail {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.7); /* Color suave */
+    border-radius: 50%;
+    pointer-events: none; /* Evita que las partículas interfieran con los clics */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* Brillo sutil */
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+/* Animación para desvanecer la estela */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+
+/* Imagen Parallax */
+.parallax {
+    height: 60vh;
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* HERO SECTION */
+.hero {
+    padding: 20px;
+    background: var(--morado-pastel);
+    color: white;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.hero h1{
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    max-width: 1100px;
+}
+
+.hero .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background:rgb(157, 109, 161);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    transition: background 0.3s ease-in-out;
+}
+
+.hero .btn:hover {
+    background:  rgba(79, 25, 93, 0.693);
+}
+
+/* Overlay (Texto oculto por defecto) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Estilos del texto en la superposición */
+.overlay h3 {
+    font-size: 1.5rem;
+    width: 75%;
+    align-content: center;
+}
+
+.overlay p {
+    font-size: 18px;
+    line-height: 20px;
+    max-width: 100%;
+}
+
+
+/* ---- 🎨 ......................................................................Navbar Global ---- */
+header {
+    background: rgba(204, 0, 255, 0.912); /* Morado pastel con opacidad */
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* ---- 🐾 Logo ---- */
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; /* Separación entre logo y enlaces */
+}
+
+.logo img {
+    max-width: 80px;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 20px;
+}
+
+/* Efecto al pasar el mouse sobre el logo */
+.logo img:hover {
+    transform: scale(1.1);
+    content:url(images/compras.jpg);
+}
+
+/* ---- 🔗 Enlaces de navegación ---- */
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Espacio entre enlaces */
+    padding: 0;
+    margin: 0;
+}
+
+/* ---- 🎨 Estilos de enlaces ---- */
+nav ul li {
+    display: inline-block;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Efecto de subrayado al pasar el mouse */
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background: white;
+    transition: width 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Efecto de cambio de color */
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ---- 📱 Diseño Responsive (Móviles) ---- */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction:row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .logo img {
+        max-width: 70px;
+    }
+
+    nav a {
+        font-size: 1.1rem;
+        padding: 8px 12px;
+    }
+}
+
+
+/* .............................................................................SOBRE SECTION*/
+
+/* Estilos generales para la imagen de fondo */
+.sobre-parallax {
+    background-image: url('images/sobre.jpg');
+    background-size: cover;
+    background-position: center top -800px; /* Posición por defecto en pantallas grandes */
+    height: 60vh; /* Ajusta la altura según sea necesario */
+}
+
+/* Ajuste en dispositivos móviles */
+@media (max-width: 768px) {
+    .sobre-parallax {
+        background-position: center; /* Reseteamos la posición del fondo */
+    }
+}
+
+
+.sobre-item {
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: #333 0px 0px 10px;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+/* Estilos de la imagen */
+.sobre-imagen {
+    width: 100%;
+    display:flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Cuando pasamos el mouse, se muestra el texto */
+.sobre-item:hover .overlay {
+    opacity: 1;
+}
+    
+.sobre-item:hover .sobre-imagen {
+    transform: scale(1.1); /* Pequeño zoom al pasar el mouse */
+}
+
+
+/* Estilos responsivos para la página 'Sobre Nosotros' */
+
+@media (max-width: 1024px) {
+    .hero {
+        padding: 15px;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 10px;
+    }
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    .hero h2 {
+        font-size: 1.3rem;
+    }
+
+    .sobre-item {
+        width: 90%;
+        max-width: 100%;
+        margin: 20px auto;
+    }
+
+    .overlay h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    .hero h2 {
+        font-size: 1.2rem;
+    }
+
+    .overlay h3 {
+        font-size: 1rem;
+        width: 90%;
+    }
+}
+
+
+
+/* .............................................................................SECCIÓN DE SERVICIOS */
+
+/* Contenedor de los servicios */
+.servicios-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 20px; 
+    background-color: var(--morado-pastel);
+}
+
+/* Cada servicio */
+.servicio {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: #151515 0px 0px 10px;
+}
+
+.servicio img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.servicio:hover img {
+    transform: scale(1.05);
+}
+
+
+/* Mostrar el texto cuando se pase el mouse */
+.servicio:hover .overlay {
+    opacity: 1;
+}
+
+.servicio:hover .overlay h3,
+.servicio:hover .overlay p {
+    opacity: 1;
+}
+
+.servicios-parallax {
+    background-image: url('images/playa.jpg');
+    background-size: cover;
+    background-position: center top -690px; /* Posición por defecto en pantallas grandes */
+    height: 60vh; /* Ajusta la altura según sea necesario */
+}
+
+/* Diseño Responsive */
+@media (max-width: 768px) {
+    .servicios-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .servicio {
+        width: 50%;
+    }
+
+        .servicio img {
+            height: 150px; /* Reduce la altura de las imágenes en móviles */
+            width: 200px;
+            object-fit: cover; /* Asegura que la imagen mantenga su proporción */
+        }
+
+        .servicios-parallax {
+            background-position: center; /* Reseteamos la posición del fondo */
+        }
+    
+
+    .modal-content {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Estilos de los modales */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor del contenido del modal */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content p{
+    margin-top: 2px;
+}
+
+/* Botón de cerrar */
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+}
+
+/* .............................................................................Estilos del Asistencia Terapia*/
+
+
+
+/* Estilos para la página de Terapia */
+
+/* Imagen de fondo para la página de terapia */
+.asistencia-parallax {
+    background-image: url('images/terapia.jpg'); /* Imagen de fondo específica para la página */
+    background-size: cover; /* Ajusta la imagen para cubrir toda la sección */
+    background-position: center top -550px; /* Posición de la imagen en pantallas grandes */
+    height: 60vh; /* Altura de la sección parallax */
+}
+
+/* Ajuste en dispositivos móviles */
+@media (max-width: 768px) {
+    .asistencia-parallax {
+        background-position: center; /* Ajusta la imagen en móviles para una mejor visibilidad */
+    }
+}
+
+/* Contenedor principal de la página */
+.asistencia-container {
+    max-width: 1100px; /* Limita el ancho del contenido para mejorar la legibilidad */
+    margin: auto; /* Centra el contenido en la pantalla */
+    padding: 40px 20px; /* Espaciado interno para mayor comodidad de lectura */
+    text-align: center; /* Alinea el texto al centro */
+}
+
+/* Sección de información y beneficios */
+.asistencia-info, .beneficios {
+    background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente para destacar el contenido */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque en el fondo */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados para un diseño más moderno */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave para resaltar la sección */
+    margin-bottom: 20px; /* Espaciado entre secciones */
+}
+
+/* Estilos para los títulos dentro de las secciones */
+.asistencia-info h2, .beneficios h2 {
+    color: white; /* Texto en color blanco para mayor contraste */
+    font-size: 1.8rem; /* Tamaño del título */
+    margin-bottom: 15px; /* Espaciado inferior para separar del contenido */
+}
+
+/* Estilos para los párrafos y listas dentro de las secciones */
+.asistencia-info p, .beneficios ul {
+    color: white; /* Color de texto en blanco */
+    font-size: 1.1rem; /* Tamaño del texto para mejor lectura */
+    line-height: 1.5; /* Espaciado entre líneas */
+}
+
+/* Estilos para la lista de beneficios */
+.beneficios ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding por defecto de la lista */
+}
+
+.beneficios li {
+    background: rgba(255, 255, 255, 0.2); /* Fondo semitransparente para cada beneficio */
+    padding: 10px; /* Espaciado interno */
+    margin: 8px 0; /* Espaciado entre elementos de la lista */
+    border-radius: 5px; /* Bordes redondeados para un diseño más suave */
+}
+
+
+/* .............................................................................Estilos del formulario de contacto */
+.contact-form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-form button {
+    background: var(--naranja-suave);
+    color: white;
+    padding: 12px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+    background: rgba(255, 165, 0, 0.8);
+}
+
+/* Estilos generales para la imagen de fondo en la página de contacto */
+.contacto-parallax {
+    background-image: url('images/contacto.jpg');
+    background-size: cover;
+    background-position: center top -400px; /* Posición por defecto en pantallas grandes */
+    height: 60vh; /* Ajusta la altura según sea necesario */
+}
+
+/* Ajuste en dispositivos móviles */
+@media (max-width: 768px) {
+    .contacto-parallax {
+        background-position: center; /* Reseteamos la posición del fondo */
+    }
+}
+
+
+/* .............................................................................Estilos del pie de página */
+footer {
+    background: rgba(143, 5, 178, 0.815); /* Morado pastel con opacidad */;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #90CAF9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para los iconos de redes sociales */
+.social-links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+.social-links img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-links img:hover {
+    transform: scale(1.2);
+}

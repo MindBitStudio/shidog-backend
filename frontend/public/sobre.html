@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIDOG - Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenedor del Navbar Global -->
+    <div id="navbar-container"></div>
+
+<!-- Imagen de fondo específica para esta página -->
+<section class="parallax sobre-parallax"></section>
+
+
+    <section class="hero">
+        <h1>QUIÉNES SOMOS</h1>
+        <h2>Capacitación basada en la ciencia, educando en positivo</h2>
+
+        <div class="sobre-item">
+            <img src="images/sobre1.jpg" alt="Equipo SHIDOG" class="sobre-imagen">
+            <div class="overlay">
+                <h3>En SHIDOG Educación Canina, intentamos mantenernos a la vanguardia de la ciencia del comportamiento animal. Ofrecemos las metodologías de capacitación más eficaces, respaldadas por los mejores en el campo.</h3>
+            </div>
+        </div>
+    
+        <div class="sobre-item">
+            <img src="images/sobre2.jpg" alt="Perros en entrenamiento" class="sobre-imagen">
+            <div class="overlay">
+                <h3>Ofrecemos sesiones privadas para satisfacer tus necesidades específicas y las de tu perro, por supuesto. Desde el control de impulsos y la obediencia hasta órdenes y trucos complejos.</h3>
+            </div>
+        </div>
+    
+        <div class="sobre-item">
+            <img src="images/sobre3.jpg" alt="Miriam y Shiva" class="sobre-imagen">
+            <div class="overlay">
+                <h3>Mi nombre es Miriam y junto a mi perrita Shiva, nos adentramos en el mundo del adiestramiento, la educación y la comunicación canina juntas.</h3>
+            </div>
+        </div>
+    </section>
+
+        <!-- Pie de página -->
+        <div id="footer-container"></div>
+
+    <script src="script.js"></script>
+
+    <script>
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar-container").innerHTML = data;
+            });
+    </script>
+</body>
+</html>

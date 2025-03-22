@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIDOG - Contacto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenedor del Navbar Global -->
+    <div id="navbar-container"></div>
+
+<!-- Imagen de fondo específica para esta página -->
+<section class="parallax contacto-parallax"></section>
+
+    <!-- Sección de contacto -->
+    <section class="hero">
+        <h1>Contáctanos</h1>
+        <p>Si tienes alguna pregunta o quieres saber más sobre nuestros servicios, envíanos un mensaje.</p>
+        
+        <form class="contact-form" id="contactForm">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+            <label for="email">Correo Electrónico</label>
+            <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+
+            <label for="servicio">Selecciona el Servicio</label>
+            <select id="servicio" name="servicio" required>
+                <option value="">-- Selecciona un servicio --</option>
+                <option value="Adiestramiento básico">Adiestramiento básico</option>
+                <option value="Modificación de conducta">Modificación de conducta</option>
+                <option value="Paseo y socialización">Paseo y socialización</option>
+                <option value="Guardería canina">Guardería canina</option>
+            </select>
+
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="¿En qué puedo ayudarte?" rows="5" required></textarea>
+
+            <button type="submit" class="btn">Enviar</button>
+        </form>
+
+        <script>
+            document.getElementById("contactForm").addEventListener("submit", async function(event) {
+                event.preventDefault(); // Evita el refresco de la página
+            
+                const nombre = document.getElementById("nombre").value;
+                const email = document.getElementById("email").value;
+                const servicio = document.getElementById("servicio").value;
+                const mensaje = document.getElementById("mensaje").value;
+            
+                console.log("Enviando desde el frontend:", { nombre, email, servicio, mensaje }); // Debug
+            
+                try {
+                    const response = await fetch("http://localhost:5000/api/contacto", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ nombre, email, servicio, mensaje })
+                    });
+            
+                    if (response.ok) {
+                        alert("✅ Mensaje enviado con éxito!");
+                        document.getElementById("contactForm").reset();
+                    } else {
+                        alert("❌ Error al enviar el mensaje.");
+                    }
+                } catch (error) {
+                    console.error("Error en la solicitud:", error);
+                    alert("❌ Error de conexión con el servidor.");
+                }
+            });
+            </script>
+            
+            
+    </section>
+
+        <!-- Pie de página -->
+        <div id="footer-container"></div>
+
+
+    <script src="script.js"></script>
+    <!-- Cargar Navbar de manera dinámica -->
+    <script>
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("navbar-container").innerHTML = data;
+            });
+    </script>
+</body>
+</html>
