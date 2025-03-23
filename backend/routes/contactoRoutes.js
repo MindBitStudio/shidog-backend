@@ -52,7 +52,7 @@ router.get("/", async (_req, res) => {
         const result = await pool.query("SELECT * FROM contacto ORDER BY fecha DESC");
         res.json(result.rows);
     } catch (error) {
-        console.error("❌ Error en GET /contacto:", error);
+        console.error("❌ Error en GET /contacto:", error); // Este log es clave
         res.status(500).json({ error: "Error al obtener los mensajes." });
     }
 });
