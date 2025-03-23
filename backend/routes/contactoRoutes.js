@@ -47,7 +47,7 @@ router.post("/", async (req, res) => {
 });
 
 // 📜 **Obtener todos los mensajes**
-router.get("/", async (req, res) => {
+router.get("/", async (_req, res) => {
     try {
         const result = await pool.query("SELECT * FROM contacto ORDER BY fecha DESC");
         res.json(result.rows);
